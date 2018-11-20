@@ -1,5 +1,5 @@
 function getToken() {
-  return ba6f6f3ed2fd9329c63eb137585d7dc23d0028a8;
+  return a01c3596255a27b3e144ded70535486cf1d82deb;
   // return '';
 }
 
