@@ -1,5 +1,5 @@
 function getToken() {
-  return '';
+  return '591659bcf5be9fc68360f05225367ad9d94c9b3d';
 }
 
 function forkRepo() {
