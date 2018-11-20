@@ -1,25 +1,38 @@
+const user = cdcardle
+
 function getToken() {
   return '';
 }
 
 function forkRepo() {
   const repo = 'learn-co-curriculum/js-ajax-fetch-lab';
-  fetch(`https://api.github.com/cdcardle/repos/${repo}/forks`, {
-    headers: {
-      Authorization: `token ${getToken()}`
-    }
+  fetch(`https://api.github.com/repos/${repo}/forks`, {
+    method: "post",
+    headers: {Authorization: `token ${getToken()}`}
   })
   .then(res => res.json())
   .then(json => showResults(json));
 }
 
 function showResults(json) {
-  //use this function to display the results from forking via the API
-  document.getElementById('results').innerHTML += `<a href="${json.html_url}">${json.html_url}</a>`;
+  document.getElementById('results').innerHTML = `<a href="${json.html_url}">${json.html_url}</a>`;
 }
 
 function createIssue() {
-  //use this function to create an issue based on the values input in index.html
+  const repo = `${user}/js-ajax-fetch-lab`
+  const postData = {
+    title: document.getElementById('title').value,
+    body: document.getElementById('body').value
+  }
+  fetch(`https://api.github.com/repos/${repo}/issues`, {
+    method: 'post',
+    body: JSON.stringify(postData),
+    headers: {
+      Auythorization: `token ${getToken()}`
+    }
+  })
+  .then(res => res.json())
+  .then(json => getIssues());
 }
 
 function getIssues() {
