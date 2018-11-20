@@ -1,4 +1,6 @@
-const user = cdcardle
+const user = 'cdcardle';
+const baseUrl = 'https://api.github.com/repos';
+const fork = `${user}/js-ajax-fetch-lab`;
 
 function getToken() {
   return '';
@@ -6,7 +8,7 @@ function getToken() {
 
 function forkRepo() {
   const repo = 'learn-co-curriculum/js-ajax-fetch-lab';
-  fetch(`https://api.github.com/repos/${repo}/forks`, {
+  fetch(`${baseUrl}/${repo}/forks`, {
     method: "post",
     headers: {Authorization: `token ${getToken()}`}
   })
@@ -19,12 +21,11 @@ function showResults(json) {
 }
 
 function createIssue() {
-  const repo = `${user}/js-ajax-fetch-lab`
   const postData = {
     title: document.getElementById('title').value,
     body: document.getElementById('body').value
   }
-  fetch(`https://api.github.com/repos/${repo}/issues`, {
+  fetch(`${baseUrl}/${fork}/issues`, {
     method: 'post',
     body: JSON.stringify(postData),
     headers: {
@@ -36,5 +37,5 @@ function createIssue() {
 }
 
 function getIssues() {
-  //once an issue is submitted, fetch all open issues to see the issues you are creating
+  
 }
