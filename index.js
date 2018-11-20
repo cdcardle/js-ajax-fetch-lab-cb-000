@@ -37,5 +37,5 @@ function createIssue() {
 }
 
 function getIssues() {
-  
+
 }
