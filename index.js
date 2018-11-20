@@ -41,3 +41,7 @@ function getIssues() {
   .then(res => res.json())
   .then(json => showIssues(json));
 }
+
+function showIssues(json) {
+  document.getElementById('results').innerHTML += `<a href="https://github.com/${json.full_name}">New Repo</a>`
+}
