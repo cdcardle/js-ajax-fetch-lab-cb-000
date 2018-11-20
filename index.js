@@ -28,14 +28,16 @@ function createIssue() {
   fetch(`${baseUrl}/${fork}/issues`, {
     method: 'post',
     body: JSON.stringify(postData),
-    headers: {
-      Auythorization: `token ${getToken()}`
-    }
+    headers: {Auythorization: `token ${getToken()}`}
   })
   .then(res => res.json())
   .then(json => getIssues());
 }
 
 function getIssues() {
-
+  fetch(`${baseUrl}/${fork}/issues`, {
+    headers: {Authorization: `token: ${getToken()}`}
+  })
+  .then(res => res.json())
+  .then(json => showIssues(json));
 }
